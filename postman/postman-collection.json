@@ -1,0 +1,1283 @@
+{
+  "info": {
+    "name": "Andree's Test API",
+    "_postman_id": "ff9bbd2d-14a5-4038-a800-d471e4c4b433",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "davivienda",
+      "description": "davivienda APIs",
+      "item": [
+        {
+          "name": "requestedRoutes",
+          "description": "This is are the routes requested by the client",
+          "item": [
+            {
+              "name": "Login",
+              "request": {
+                "url": "{{url}}/api/v1/user/login",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "Use this endpoint to login with the user's credentials"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_mobile\": \"+573589654785\",\n  \"password\": \"0i40t9i0wfwoeiir398\"\n}"
+                },
+                "description": "",
+                "auth": {}
+              },
+              "response": [
+                {
+                  "name": "Login in response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/api/v1/user/login"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Login Successful\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"id\": \"63ebc74363671ca2102e8977\",\n    \"loginRetryLimit\": 0,\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-08-03T20:49:42.744Z\",\n    \"updatedAt\": \"2024-01-21T18:23:46.769Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "GetUsers",
+              "request": {
+                "url": "{{url}}/api/v1/users",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "Use this endpoint to get a list of user filtered by your query"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {},\n  \"options\": {\n    \"select\": [\n      \"field 1\",\n      \"field 2\"\n    ],\n    \"collation\": \"\",\n    \"sort\": \"\",\n    \"populate\": \"\",\n    \"projection\": \"\",\n    \"lean\": false,\n    \"leanWithId\": true,\n    \"offset\": 0,\n    \"page\": 1,\n    \"limit\": 10,\n    \"pagination\": true,\n    \"useEstimatedCount\": false,\n    \"useCustomCountFn\": false,\n    \"forceCountFn\": false,\n    \"read\": {},\n    \"options\": {}\n  },\n  \"isCountOnly\": false\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "getuser_response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/api/v1/users"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8971\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "GetUser",
+              "request": {
+                "url": "{{url}}/api/v1/user/:id",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "Use this endpoint to get an user by id"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "getuser_response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8971\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "CreateUser",
+              "request": {
+                "url": "{{url}}/api/v1/user/create",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "Use this endpoint to create a new user"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jhon\",\n  \"last_name\": \"Doe\",\n  \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n  \"address\": \"Calle 123 #12-34\",\n  \"token\": \"SMS\",\n  \"password\": \"D3nlsLAHNoZOLgP\",\n  \"phone_mobile\": \"+57301123456\",\n  \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n  \"token_type\": \"Bearer\",\n  \"session_active\": true,\n \"userType\": 1\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "createdUserResponse",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/api/v1/user/create"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e896e\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "UpdateUser",
+              "request": {
+                "url": "{{url}}/api/v1/user/update/:id",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "Use this endpoint to update an user by id"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jhon\",\n  \"last_name\": \"Doe\",\n  \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n  \"address\": \"Av siempre vivas springfield\",\n  \"token\": \"SMS\",\n  \"password\": \"D3nlsLAHNoZOLgP\",\n  \"phone_mobile\": \"+578569856320\",\n  \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n  \"token_type\": \"Bearer\",\n  \"session_active\": true,\n \"userType\": 1\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "updateuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/update/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8972\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "DeleteUser",
+              "request": {
+                "url": "{{url}}/api/v1/user/delete/:id",
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "Use this endpoint to delete an user by id"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "deleteuser_response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/delete/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"Count\": 1\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            }
+          ]
+        },
+        {
+          "name": "user",
+          "description": "user Model APIs",
+          "item": [
+            {
+              "name": "getuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/:id",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "getuser_response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8971\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "get loggedin User",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/me",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "loggedInUserInfo_response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/me"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8976\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "adduser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/create",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jhon\",\n  \"last_name\": \"Doe\",\n  \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n  \"address\": \"SDD\",\n  \"token\": \"SMS\",\n  \"password\": \"D3nlsLAHNoZOLgP\",\n  \"phone_mobile\": \"+578965289652\",\n  \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n  \"token_type\": \"Bearer\",\n  \"session_active\": true,\n  \"mobileNo\": \"(512) 053-4971\",\n  \"phone_mobile\": \"Aaliyah.Schuppe\",\n  \"userType\": 1\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "adduser_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/create"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e896e\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "insertBulkuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/addBulk",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": [\n    {\n      \"first_name\": \"Jhon\",\n      \"last_name\": \"Doe\",\n      \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n      \"address\": \"SDD\",\n      \"token\": \"SMS\",\n      \"password\": \"D3nlsLAHNoZOLgP\",\n      \"phone_mobile\": \"+578965289652\",\n      \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n      \"token_type\": \"Bearer\",\n      \"session_active\": true,\n         \"userType\": 1\n    }\n  ]\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "insertBulkuser_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/addBulk"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"count\": 2\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "findAlluser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/list",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {},\n  \"options\": {\n    \"select\": [\n      \"field 1\",\n      \"field 2\"\n    ],\n    \"collation\": \"\",\n    \"sort\": \"\",\n    \"populate\": \"\",\n    \"projection\": \"\",\n    \"lean\": false,\n    \"leanWithId\": true,\n    \"offset\": 0,\n    \"page\": 1,\n    \"limit\": 10,\n    \"pagination\": true,\n    \"useEstimatedCount\": false,\n    \"useCustomCountFn\": false,\n    \"forceCountFn\": false,\n    \"read\": {},\n    \"options\": {}\n  },\n  \"isCountOnly\": false\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "findAlluser_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/list"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"data\": [\n      {\n        \"first_name\": \"Jhon\",\n        \"last_name\": \"Doe\",\n        \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n        \"address\": \"SDD\",\n        \"token\": \"SMS\",\n        \"phone_mobile\": \"+578965289652\",\n        \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n        \"token_type\": \"Bearer\",\n        \"session_active\": true,\n               \"userType\": 1,\n        \"id\": \"63ebc74363671ca2102e8970\",\n        \"isDeleted\": false,\n        \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n        \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n      }\n    ],\n    \"paginator\": {\n      \"itemCount\": 1,\n      \"offset\": 0,\n      \"perPage\": 10,\n      \"pageCount\": 1,\n      \"currentPage\": 1,\n      \"slNo\": 1,\n      \"hasPrevPage\": false,\n      \"hasNextPage\": false,\n      \"prev\": null,\n      \"next\": null\n    }\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "getuserCount",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/count",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"where\": {\n    \"isActive\": true\n  }\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "getuserCount_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/count"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"count\": 10\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "deleteManyuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/deleteMany",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isWarning\": true,\n  \"ids\": [\n    \":id\"\n  ]\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "deleteManyuser_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/deleteMany"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"count\": 2\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "updateuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/update/:id",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jhon\",\n  \"last_name\": \"Doe\",\n  \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n  \"address\": \"SDD\",\n  \"token\": \"SMS\",\n  \"password\": \"D3nlsLAHNoZOLgP\",\n  \"phone_mobile\": \"+578965289652\",\n  \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n  \"token_type\": \"Bearer\",\n  \"session_active\": true,\n  \"mobileNo\": \"(512) 053-4971\",\n  \"phone_mobile\": \"Aaliyah.Schuppe\",\n  \"userType\": 1\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "updateuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/update/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8972\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "partialupdateuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/partial-update/:id",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": true,\n  \"isDeleted\": false\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "partialupdateuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/partial-update/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8973\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "updateBulkuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/updateBulk",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"isActive\": true\n  },\n  \"data\": {\n    \"isDeleted\": false\n  }\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "updateBulkuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/updateBulk"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"count\": 2\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "softDeleteuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/softDelete/:id",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "softDeleteuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/softDelete/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"count\": 2\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "softDeleteManyuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/softDeleteMany",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \":id\"\n  ]\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "softDeleteManyuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/softDeleteMany"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"count\": 2\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "updateProfile",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/update-profile",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jhon\",\n  \"last_name\": \"Doe\",\n  \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n  \"address\": \"SDD\",\n  \"token\": \"SMS\",\n  \"password\": \"D3nlsLAHNoZOLgP\",\n  \"phone_mobile\": \"+578965289652\",\n  \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n  \"token_type\": \"Bearer\",\n  \"session_active\": true,\n  \"mobileNo\": \"(512) 053-4971\",\n  \"phone_mobile\": \"Aaliyah.Schuppe\",\n  \"userType\": 1\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "updateProfileuser_response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/update-profile"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"userType\": 1,\n    \"id\": \"63ebc74363671ca2102e8975\",\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-05-29T02:32:25.285Z\",\n    \"updatedAt\": \"2023-07-17T06:05:52.354Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "deleteuser",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/delete/:id",
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isWarning\": true\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "deleteuser_response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/delete/:id"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"Count\": 1\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "description": "davivienda Login",
+          "item": [
+            {
+              "name": "Login in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/auth/login",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_mobile\": \"phone_mobile\",\n  \"password\": \"password\"\n}"
+                },
+                "description": "",
+                "auth": {}
+              },
+              "response": [
+                {
+                  "name": "Login in davivienda_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/auth/login"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Login Successful\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"id\": \"63ebc74363671ca2102e8977\",\n    \"loginRetryLimit\": 0,\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-08-03T20:49:42.744Z\",\n    \"updatedAt\": \"2024-01-21T18:23:46.769Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Register User in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/auth/register",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jhon\",\n  \"last_name\": \"Doe\",\n  \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n  \"address\": \"SDD\",\n  \"token\": \"SMS\",\n  \"password\": \"D3nlsLAHNoZOLgP\",\n  \"phone_mobile\": \"+578965289652\",\n  \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n  \"token_type\": \"Bearer\",\n  \"session_active\": true,\n  \"mobileNo\": \"(512) 053-4971\",\n  \"phone_mobile\": \"Aaliyah.Schuppe\"\n}"
+                },
+                "description": "",
+                "auth": {}
+              },
+              "response": [
+                {
+                  "name": "Register User in davivienda_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/auth/register"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Your request is successfully executed\",\n  \"data\": {\n    \"first_name\": \"Jhon\",\n    \"last_name\": \"Doe\",\n    \"date_birth\": \"2023-09-12T03:57:10.257Z\",\n    \"address\": \"SDD\",\n    \"token\": \"SMS\",\n    \"phone_mobile\": \"+578965289652\",\n    \"email\": \"Keyon_Rosenbaum79@yahoo.com\",\n    \"token_type\": \"Bearer\",\n    \"session_active\": true,\n   \"id\": \"63ebc74363671ca2102e8977\",\n    \"loginRetryLimit\": 0,\n    \"isDeleted\": false,\n    \"createdAt\": \"2023-08-03T20:49:42.744Z\",\n    \"updatedAt\": \"2024-01-21T18:23:46.769Z\"\n  }\n}",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Forgot Password in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/auth/forgot-password",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"yourmail@gmail.com\"\n}"
+                },
+                "description": "",
+                "auth": {}
+              },
+              "response": [
+                {
+                  "name": "Forgot Password in davivienda_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/auth/forgot-password"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"otp successfully send to your email.\",\n  \"data\": {}\n}",
+                  "header": [],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Validate OTP in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/auth/validate-otp",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"otp\": \"5898\"\n}"
+                },
+                "description": "",
+                "auth": {}
+              },
+              "response": [
+                {
+                  "name": "Validate OTP in davivienda_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/auth/validate-otp"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Invalid OTP\",\n  \"data\": {}\n}",
+                  "header": [],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Logout in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/auth/logout",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Change Password in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/api/v1/user/change-password",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldPassword\": \"OldPassword\",\n  \"newPassword\": \"NewPassword\"\n}"
+                },
+                "description": "",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "Change Password in davivienda_response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/api/v1/user/change-password"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Password changed successfully\",\n  \"data\": {}\n}",
+                  "header": [],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Reset password in davivienda",
+              "request": {
+                "url": "{{url}}/davivienda/auth/reset-password",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"5898\",\n  \"newPassword\": \"yourPassword\"\n}"
+                },
+                "description": "",
+                "auth": {}
+              },
+              "response": [
+                {
+                  "name": "Reset password in davivienda_response~",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/davivienda/auth/reset-password"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "body": "{\n  \"status\": \"SUCCESS\",\n  \"message\": \"Password reset successfully\",\n  \"data\": {}\n}",
+                  "header": [],
+                  "cookie": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

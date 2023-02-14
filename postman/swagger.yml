@@ -1,0 +1,1315 @@
+openapi: 3.0.0
+info:
+  title: Andree's Test API
+  version: 1.0.0
+servers:
+  - url: http://{{url}}
+components:
+  securitySchemes:
+    undefinedAuth:
+      type: http
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: davivienda
+    description: davivienda APIs
+  - name: davivienda > requestedRoutes
+    description: This is are the routes requested by the client
+  - name: davivienda > user
+    description: user Model APIs
+  - name: davivienda > login
+    description: davivienda Login
+paths:
+  /api/v1/user/login:
+    post:
+      tags:
+        - davivienda > requestedRoutes
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone_mobile: '+573589654785'
+                password: 0i40t9i0wfwoeiir398
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: Use this endpoint to login with the user's credentials
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  id: 63ebc74363671ca2102e8977
+                  loginRetryLimit: 0
+                  isDeleted: false
+                  createdAt: '2023-08-03T20:49:42.744Z'
+                  updatedAt: '2024-01-21T18:23:46.769Z'
+  /api/v1/users:
+    post:
+      tags:
+        - davivienda > requestedRoutes
+      summary: GetUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: Use this endpoint to get a list of user filtered by your query
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8971
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /api/v1/user/{id}:
+    get:
+      tags:
+        - davivienda > requestedRoutes
+      summary: GetUser
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: Use this endpoint to get an user by id
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8971
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /api/v1/user/create:
+    post:
+      tags:
+        - davivienda > requestedRoutes
+      summary: CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jhon
+                last_name: Doe
+                date_birth: '2023-09-12T03:57:10.257Z'
+                address: 'Calle 123 #12-34'
+                token: SMS
+                password: D3nlsLAHNoZOLgP
+                phone_mobile: '+57301123456'
+                email: Keyon_Rosenbaum79@yahoo.com
+                token_type: Bearer
+                session_active: true
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: Use this endpoint to create a new user
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e896e
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /api/v1/user/update/{id}:
+    put:
+      tags:
+        - davivienda > requestedRoutes
+      summary: UpdateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jhon
+                last_name: Doe
+                date_birth: '2023-09-12T03:57:10.257Z'
+                address: Av siempre vivas springfield
+                token: SMS
+                password: D3nlsLAHNoZOLgP
+                phone_mobile: '+578569856320'
+                email: Keyon_Rosenbaum79@yahoo.com
+                token_type: Bearer
+                session_active: true
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: Use this endpoint to update an user by id
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8972
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /api/v1/user/delete/{id}:
+    delete:
+      tags:
+        - davivienda > requestedRoutes
+      summary: DeleteUser
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: Use this endpoint to delete an user by id
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /davivienda/api/v1/user/{id}:
+    get:
+      tags:
+        - davivienda > user
+      summary: getuser
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8971
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /davivienda/api/v1/user/me:
+    get:
+      tags:
+        - davivienda > user
+      summary: get loggedin User
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8976
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /davivienda/api/v1/user/create:
+    post:
+      tags:
+        - davivienda > user
+      summary: adduser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jhon
+                last_name: Doe
+                date_birth: '2023-09-12T03:57:10.257Z'
+                address: SDD
+                token: SMS
+                password: D3nlsLAHNoZOLgP
+                phone_mobile: Aaliyah.Schuppe
+                email: Keyon_Rosenbaum79@yahoo.com
+                token_type: Bearer
+                session_active: true
+                mobileNo: (512) 053-4971
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e896e
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /davivienda/api/v1/user/addBulk:
+    post:
+      tags:
+        - davivienda > user
+      summary: insertBulkuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - first_name: Jhon
+                    last_name: Doe
+                    date_birth: '2023-09-12T03:57:10.257Z'
+                    address: SDD
+                    token: SMS
+                    password: D3nlsLAHNoZOLgP
+                    phone_mobile: '+578965289652'
+                    email: Keyon_Rosenbaum79@yahoo.com
+                    token_type: Bearer
+                    session_active: true
+                    userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /davivienda/api/v1/user/list:
+    post:
+      tags:
+        - davivienda > user
+      summary: findAlluser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - first_name: Jhon
+                      last_name: Doe
+                      date_birth: '2023-09-12T03:57:10.257Z'
+                      address: SDD
+                      token: SMS
+                      phone_mobile: '+578965289652'
+                      email: Keyon_Rosenbaum79@yahoo.com
+                      token_type: Bearer
+                      session_active: true
+                      userType: 1
+                      id: 63ebc74363671ca2102e8970
+                      isDeleted: false
+                      createdAt: '2023-05-29T02:32:25.285Z'
+                      updatedAt: '2023-07-17T06:05:52.354Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /davivienda/api/v1/user/count:
+    post:
+      tags:
+        - davivienda > user
+      summary: getuserCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /davivienda/api/v1/user/deleteMany:
+    post:
+      tags:
+        - davivienda > user
+      summary: deleteManyuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /davivienda/api/v1/user/update/{id}:
+    put:
+      tags:
+        - davivienda > user
+      summary: updateuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jhon
+                last_name: Doe
+                date_birth: '2023-09-12T03:57:10.257Z'
+                address: SDD
+                token: SMS
+                password: D3nlsLAHNoZOLgP
+                phone_mobile: Aaliyah.Schuppe
+                email: Keyon_Rosenbaum79@yahoo.com
+                token_type: Bearer
+                session_active: true
+                mobileNo: (512) 053-4971
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8972
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /davivienda/api/v1/user/partial-update/{id}:
+    put:
+      tags:
+        - davivienda > user
+      summary: partialupdateuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8973
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /davivienda/api/v1/user/updateBulk:
+    put:
+      tags:
+        - davivienda > user
+      summary: updateBulkuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /davivienda/api/v1/user/softDelete/{id}:
+    put:
+      tags:
+        - davivienda > user
+      summary: softDeleteuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /davivienda/api/v1/user/softDeleteMany:
+    put:
+      tags:
+        - davivienda > user
+      summary: softDeleteManyuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /davivienda/api/v1/user/update-profile:
+    put:
+      tags:
+        - davivienda > user
+      summary: updateProfile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jhon
+                last_name: Doe
+                date_birth: '2023-09-12T03:57:10.257Z'
+                address: SDD
+                token: SMS
+                password: D3nlsLAHNoZOLgP
+                phone_mobile: Aaliyah.Schuppe
+                email: Keyon_Rosenbaum79@yahoo.com
+                token_type: Bearer
+                session_active: true
+                mobileNo: (512) 053-4971
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  userType: 1
+                  id: 63ebc74363671ca2102e8975
+                  isDeleted: false
+                  createdAt: '2023-05-29T02:32:25.285Z'
+                  updatedAt: '2023-07-17T06:05:52.354Z'
+  /davivienda/api/v1/user/delete/{id}:
+    delete:
+      tags:
+        - davivienda > user
+      summary: deleteuser
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /davivienda/auth/login:
+    post:
+      tags:
+        - davivienda > login
+      summary: Login in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone_mobile: phone_mobile
+                password: password
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  id: 63ebc74363671ca2102e8977
+                  loginRetryLimit: 0
+                  isDeleted: false
+                  createdAt: '2023-08-03T20:49:42.744Z'
+                  updatedAt: '2024-01-21T18:23:46.769Z'
+  /davivienda/auth/register:
+    post:
+      tags:
+        - davivienda > login
+      summary: Register User in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jhon
+                last_name: Doe
+                date_birth: '2023-09-12T03:57:10.257Z'
+                address: SDD
+                token: SMS
+                password: D3nlsLAHNoZOLgP
+                phone_mobile: Aaliyah.Schuppe
+                email: Keyon_Rosenbaum79@yahoo.com
+                token_type: Bearer
+                session_active: true
+                mobileNo: (512) 053-4971
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  first_name: Jhon
+                  last_name: Doe
+                  date_birth: '2023-09-12T03:57:10.257Z'
+                  address: SDD
+                  token: SMS
+                  phone_mobile: '+578965289652'
+                  email: Keyon_Rosenbaum79@yahoo.com
+                  token_type: Bearer
+                  session_active: true
+                  id: 63ebc74363671ca2102e8977
+                  loginRetryLimit: 0
+                  isDeleted: false
+                  createdAt: '2023-08-03T20:49:42.744Z'
+                  updatedAt: '2024-01-21T18:23:46.769Z'
+  /davivienda/auth/forgot-password:
+    post:
+      tags:
+        - davivienda > login
+      summary: Forgot Password in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: yourmail@gmail.com
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: otp successfully send to your email.
+                data: {}
+  /davivienda/auth/validate-otp:
+    post:
+      tags:
+        - davivienda > login
+      summary: Validate OTP in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                otp: '5898'
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Invalid OTP
+                data: {}
+  /davivienda/auth/logout:
+    post:
+      tags:
+        - davivienda > login
+      summary: Logout in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /davivienda/api/v1/user/change-password:
+    put:
+      tags:
+        - davivienda > login
+      summary: Change Password in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                oldPassword: OldPassword
+                newPassword: NewPassword
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Password changed successfully
+                data: {}
+  /davivienda/auth/reset-password:
+    put:
+      tags:
+        - davivienda > login
+      summary: Reset password in davivienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: '5898'
+                newPassword: yourPassword
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Password reset successfully
+                data: {}
